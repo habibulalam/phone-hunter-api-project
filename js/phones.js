@@ -2,6 +2,7 @@ const loadPhone = async(inputText) => {
     const res = await fetch(`https://openapi.programming-hero.com/api/phones?search=${inputText}`)
     const data = await res.json();
     const phones = data.data;
+    console.log(phones)
      displayPhones(phones); 
 }
 
@@ -10,16 +11,16 @@ const displayPhones = (phones) => {
     phoneContainer.textContent = ''
 
     // if result is more than 12 Card then display Show All button. If result is not more than 12 Card then don't display the button
-    const showAllButton = document.getElementById('show-all-phone')
-    if(phones.length > 12){
-        showAllButton.classList.remove('hidden')
-    }
-    else{
-        showAllButton.classList.add('hidden')
-    }
+    // const showAllButton = document.getElementById('show-all-phone')
+    // if(phones.length > 12){
+    //     showAllButton.classList.remove('hidden')
+    // }
+    // else{
+    //     showAllButton.classList.add('hidden')
+    // }
 
     // show only 12 phone card
-    phones = phones.slice(0,12)
+    // phones = phones.slice(0,12)
 
 
     phones.forEach(phone => {
